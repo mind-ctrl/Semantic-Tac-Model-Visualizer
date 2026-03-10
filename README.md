@@ -32,28 +32,6 @@ A `.zip` file containing the TMDL folder structure:
 ### BIM / JSON
 A `.bim` or `.json` file in the Power BI model schema format (the serialized `model.bim` from Tabular Editor, Visual Studio, etc.)
 
-## Getting Started
-
-### Prerequisites
-- Node.js 18+
-- npm
-
-### Install & Run
-
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Build for Production
-
-```bash
-npm run build
-npm start
-```
-
 ## Diagram Interactions
 
 - **Pan & Zoom** — Scroll to zoom, click and drag to pan
@@ -70,26 +48,6 @@ npm start
 - **Styling**: Tailwind CSS v4
 - **Parsing**: Custom TMDL/BIM parsers with JSZip
 - **Language**: TypeScript
-
-## Project Structure
-
-```
-src/
-  app/              # Next.js app router pages & API routes
-  components/       # React components
-    diagrams/       # ERD, Star Schema, RLS, Sources, Calc Group diagrams
-  lib/              # Parsers, analysis, types, model context
-```
-
-## Deploy
-
-The easiest deployment option is Vercel:
-
-1. Push this repo to GitHub
-2. Import the repo on [vercel.com](https://vercel.com)
-3. Vercel auto-detects Next.js — click Deploy
-
-Other options: Netlify, Cloudflare Pages, or any Node.js host.
 
 ## License
 
