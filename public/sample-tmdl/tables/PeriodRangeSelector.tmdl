@@ -1,0 +1,17 @@
+table PeriodRangeSelector
+
+	column SortOrder
+		dataType: int64
+		sourceColumn: SortOrder
+
+	column Period
+		dataType: string
+		sourceColumn: Period
+
+	column PeriodCode
+		dataType: string
+		sourceColumn: PeriodCode
+
+	partition PeriodRangeSelector = calculated
+		mode: import
+		source = DATATABLE("SortOrder", INTEGER, "Period", STRING, "PeriodCode", STRING, {{1, "MTD", "MTD"}, {2, "QTD", "QTD"}, {3, "YTD", "YTD"}})

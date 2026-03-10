@@ -1,0 +1,82 @@
+table calendar
+
+	column CalendarDate
+		dataType: dateTime
+		sourceColumn: CalendarDate
+
+	column CalendarMonth_YM
+		dataType: string
+		sourceColumn: CalendarMonth_YM
+
+	column Year
+		dataType: int64
+		sourceColumn: Year
+
+	column Month
+		dataType: int64
+		sourceColumn: Month
+
+	column MonthName
+		dataType: string
+		sourceColumn: MonthName
+
+	column Quarter
+		dataType: string
+		sourceColumn: Quarter
+
+	column QuarterName
+		dataType: string
+		sourceColumn: QuarterName
+
+	column WeekNumber
+		dataType: int64
+		sourceColumn: WeekNumber
+
+	column DayOfWeek
+		dataType: int64
+		sourceColumn: DayOfWeek
+
+	column DayName
+		dataType: string
+		sourceColumn: DayName
+
+	column IsWeekend
+		dataType: boolean
+		sourceColumn: IsWeekend
+
+	column IsPublicHoliday
+		dataType: boolean
+		sourceColumn: IsPublicHoliday
+
+	column FY_Year
+		dataType: string
+		sourceColumn: FY_Year
+
+	column FY_Quarter
+		dataType: string
+		sourceColumn: FY_Quarter
+
+	column FY_Month
+		dataType: int64
+		sourceColumn: FY_Month
+
+	column FY_Week
+		dataType: int64
+		sourceColumn: FY_Week
+
+	column FY_Start
+		dataType: dateTime
+		sourceColumn: FY_Start
+
+	column FY_End
+		dataType: dateTime
+		sourceColumn: FY_End
+
+	column CalMonth
+		dataType: int64
+		sourceColumn: CalMonth
+
+	partition calendar = entity
+		mode: directLake
+		entityName: calendar
+		schemaName: dbo

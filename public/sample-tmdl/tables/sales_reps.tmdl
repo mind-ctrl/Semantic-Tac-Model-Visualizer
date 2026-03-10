@@ -1,0 +1,34 @@
+table sales_reps
+
+	column SalesmanNo
+		dataType: string
+		sourceColumn: SalesmanNo
+
+	column SalesmanName
+		dataType: string
+		sourceColumn: SalesmanName
+
+	column SalesmanEmail
+		dataType: string
+		sourceColumn: SalesmanEmail
+
+	column SalesmanPhone
+		dataType: string
+		sourceColumn: SalesmanPhone
+
+	column SalesRegion
+		dataType: string
+		sourceColumn: SalesRegion
+
+	column IsActive
+		dataType: boolean
+		sourceColumn: IsActive
+
+	column StartDate
+		dataType: dateTime
+		sourceColumn: StartDate
+
+	partition sales_reps = entity
+		mode: directLake
+		entityName: sales_reps
+		schemaName: dbo

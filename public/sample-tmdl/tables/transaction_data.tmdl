@@ -1,0 +1,62 @@
+table transaction_data
+
+	column DIL_SERLINK
+		dataType: string
+		sourceColumn: DIL_SERLINK
+
+	column OrderNo
+		dataType: string
+		sourceColumn: OrderNo
+
+	column OrderLineNo
+		dataType: int64
+		sourceColumn: OrderLineNo
+
+	column Customer_Code
+		dataType: string
+		sourceColumn: Customer_Code
+
+	column ItemNo
+		dataType: string
+		sourceColumn: ItemNo
+
+	column OrderDate
+		dataType: dateTime
+		sourceColumn: OrderDate
+
+	column RequestedDeliveryDate
+		dataType: dateTime
+		sourceColumn: RequestedDeliveryDate
+
+	column PromisedDeliveryDate
+		dataType: dateTime
+		sourceColumn: PromisedDeliveryDate
+
+	column ActualDeliveryDate
+		dataType: dateTime
+		sourceColumn: ActualDeliveryDate
+
+	column Warehouse_No
+		dataType: string
+		sourceColumn: Warehouse_No
+
+	column Quantity
+		dataType: int64
+		sourceColumn: Quantity
+
+	column UnitPrice
+		dataType: double
+		sourceColumn: UnitPrice
+
+	column LineTotal
+		dataType: double
+		sourceColumn: LineTotal
+
+	column Status
+		dataType: string
+		sourceColumn: Status
+
+	partition transaction_data = entity
+		mode: directLake
+		entityName: transaction_data
+		schemaName: dbo

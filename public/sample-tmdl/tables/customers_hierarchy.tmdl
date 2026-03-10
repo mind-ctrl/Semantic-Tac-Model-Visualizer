@@ -1,0 +1,26 @@
+table customers_hierarchy
+
+	column Customer_Code
+		dataType: string
+		sourceColumn: Customer_Code
+
+	column Customer_Name
+		dataType: string
+		sourceColumn: Customer_Name
+
+	column CustomerLevel
+		dataType: string
+		sourceColumn: CustomerLevel
+
+	column ParentCode
+		dataType: string
+		sourceColumn: ParentCode
+
+	column RootCode
+		dataType: string
+		sourceColumn: RootCode
+
+	partition customers_hierarchy = entity
+		mode: directLake
+		entityName: customers_hierarchy
+		schemaName: dbo

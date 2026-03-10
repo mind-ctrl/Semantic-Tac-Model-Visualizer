@@ -1,0 +1,4 @@
+role 'Sales Rep'
+	modelPermission: read
+
+	tablePermission sales_rep_debtor_mapping = sales_rep_debtor_mapping[UserUPN] = USERPRINCIPALNAME()

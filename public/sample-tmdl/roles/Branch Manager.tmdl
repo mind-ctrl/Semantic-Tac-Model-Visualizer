@@ -1,0 +1,4 @@
+role 'Branch Manager'
+	modelPermission: read
+
+	tablePermission branches = LOWER([Branch_ManagerEmail]) == LOWER(USERPRINCIPALNAME())

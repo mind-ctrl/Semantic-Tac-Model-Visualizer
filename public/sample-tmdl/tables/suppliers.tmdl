@@ -1,0 +1,42 @@
+table suppliers
+
+	column Supplier_Code
+		dataType: string
+		sourceColumn: Supplier_Code
+
+	column Supplier_Name
+		dataType: string
+		sourceColumn: Supplier_Name
+
+	column Supplier_Currency
+		dataType: string
+		sourceColumn: Supplier_Currency
+
+	column Supplier_City
+		dataType: string
+		sourceColumn: Supplier_City
+
+	column Supplier_Address
+		dataType: string
+		sourceColumn: Supplier_Address
+
+	column Supplier_State
+		dataType: string
+		sourceColumn: Supplier_State
+
+	column Supplier_Postcode
+		dataType: string
+		sourceColumn: Supplier_Postcode
+
+	column Supplier_Country
+		dataType: string
+		sourceColumn: Supplier_Country
+
+	column Supplier_EIN_Code
+		dataType: string
+		sourceColumn: Supplier_EIN_Code
+
+	partition suppliers = entity
+		mode: directLake
+		entityName: suppliers
+		schemaName: dbo

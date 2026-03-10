@@ -1,0 +1,30 @@
+table sales_rep_debtor_mapping
+
+	column Customer_Code
+		dataType: string
+		sourceColumn: Customer_Code
+
+	column SalesmanNo
+		dataType: string
+		sourceColumn: SalesmanNo
+
+	column UserUPN
+		dataType: string
+		sourceColumn: UserUPN
+
+	column MappingType
+		dataType: string
+		sourceColumn: MappingType
+
+	column ValidFrom
+		dataType: dateTime
+		sourceColumn: ValidFrom
+
+	column ValidTo
+		dataType: dateTime
+		sourceColumn: ValidTo
+
+	partition sales_rep_debtor_mapping = entity
+		mode: directLake
+		entityName: sales_rep_debtor_mapping
+		schemaName: dbo

@@ -1,0 +1,30 @@
+table product_category
+
+	column ProductCategory
+		dataType: string
+		sourceColumn: ProductCategory
+
+	column Category_Desc
+		dataType: string
+		sourceColumn: Category_Desc
+
+	column Category_Level1_Code
+		dataType: string
+		sourceColumn: Category_Level1_Code
+
+	column Category_Level1_Name
+		dataType: string
+		sourceColumn: Category_Level1_Name
+
+	column Category_Level2_Code
+		dataType: string
+		sourceColumn: Category_Level2_Code
+
+	column Category_Level2_Name
+		dataType: string
+		sourceColumn: Category_Level2_Name
+
+	partition product_category = entity
+		mode: directLake
+		entityName: product_category
+		schemaName: dbo

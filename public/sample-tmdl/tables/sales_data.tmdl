@@ -1,0 +1,87 @@
+table sales_data
+
+	column ID
+		dataType: int64
+		sourceColumn: ID
+		summarizeBy: none
+
+	column Invoice_No
+		dataType: string
+		sourceColumn: Invoice_No
+
+	column Customer_Code
+		dataType: string
+		sourceColumn: Customer_Code
+
+	column Invoice_Date
+		dataType: dateTime
+		sourceColumn: Invoice_Date
+
+	column ItemNo
+		dataType: string
+		sourceColumn: ItemNo
+
+	column Warehouse_No
+		dataType: string
+		sourceColumn: Warehouse_No
+
+	column Quantity
+		dataType: int64
+		sourceColumn: Quantity
+
+	column UnitPrice
+		dataType: double
+		sourceColumn: UnitPrice
+
+	column TotalAmount
+		dataType: double
+		sourceColumn: TotalAmount
+
+	column Discount
+		dataType: double
+		sourceColumn: Discount
+
+	column NetAmount
+		dataType: double
+		sourceColumn: NetAmount
+
+	column CostPrice
+		dataType: double
+		sourceColumn: CostPrice
+
+	column GrossProfit
+		dataType: double
+		sourceColumn: GrossProfit
+
+	column OrderDate
+		dataType: dateTime
+		sourceColumn: OrderDate
+
+	column ExpectedDeliveryDate
+		dataType: dateTime
+		sourceColumn: ExpectedDeliveryDate
+
+	column DeliveryDate
+		dataType: dateTime
+		sourceColumn: DeliveryDate
+
+	column EffectiveSalesmanNo
+		dataType: string
+		sourceColumn: EffectiveSalesmanNo
+
+	column Branch_Code
+		dataType: string
+		sourceColumn: Branch_Code
+
+	column Region
+		dataType: string
+		sourceColumn: Region
+
+	column Category
+		dataType: string
+		sourceColumn: Category
+
+	partition sales_data = entity
+		mode: directLake
+		entityName: sales_data
+		schemaName: dbo

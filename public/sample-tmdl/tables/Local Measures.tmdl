@@ -1,0 +1,70 @@
+table 'Local Measures'
+
+	column Dummy
+		dataType: int64
+		sourceColumn: Dummy
+		isHidden
+
+	measure 'Sales Amount' = SUMX('sales_data', 'sales_data'[Quantity] * 'sales_data'[UnitPrice])
+		formatString: $ #,##0.00
+
+	measure 'Total Quantity' = SUM('sales_data'[Quantity])
+		formatString: #,##0
+
+	measure 'Sales Amount YTD' = TOTALYTD([Sales Amount], 'calendar'[CalendarDate])
+		formatString: $ #,##0.00
+
+	measure 'Sales Amount PY' = CALCULATE([Sales Amount], SAMEPERIODLASTYEAR('calendar'[CalendarDate]))
+		formatString: $ #,##0.00
+
+	measure 'Sales Growth %' = DIVIDE([Sales Amount] - [Sales Amount PY], [Sales Amount PY])
+		formatString: 0.0%
+
+	measure 'Avg Order Value' = DIVIDE([Sales Amount], DISTINCTCOUNT('sales_data'[Invoice_No]))
+		formatString: $ #,##0.00
+
+	measure 'Gross Profit' = SUM('sales_data'[GrossProfit])
+		formatString: $ #,##0.00
+
+	measure 'Gross Margin %' = DIVIDE([Gross Profit], [Sales Amount])
+		formatString: 0.0%
+
+	measure 'Total Customers' = DISTINCTCOUNT('sales_data'[Customer_Code])
+		formatString: #,##0
+
+	measure 'Customer Count YTD' = TOTALYTD([Total Customers], 'calendar'[CalendarDate])
+		formatString: #,##0
+
+	measure 'Days to Despatch' = AVERAGE('difot'[DaysToDeliver])
+		formatString: 0.0
+
+	measure 'DIFOT %' = DIVIDE(COUNTROWS(FILTER('difot', 'difot'[IsDIFOT] = TRUE())), COUNTROWS('difot'))
+		formatString: 0.0%
+
+	measure 'Sales Amount MTD' = TOTALMTD([Sales Amount], 'calendar'[CalendarDate])
+		formatString: $ #,##0.00
+
+	measure 'Sales Amount QTD' = TOTALQTD([Sales Amount], 'calendar'[CalendarDate])
+		formatString: $ #,##0.00
+
+	measure 'Net Amount' = SUM('sales_data'[NetAmount])
+		formatString: $ #,##0.00
+
+	measure 'Discount Amount' = SUM('sales_data'[Discount])
+		formatString: $ #,##0.00
+
+	measure 'Discount %' = DIVIDE([Discount Amount], [Sales Amount])
+		formatString: 0.0%
+
+	measure 'Cost of Sales' = SUM('sales_data'[CostPrice])
+		formatString: $ #,##0.00
+
+	measure 'Sales per Branch' = DIVIDE([Sales Amount], DISTINCTCOUNT('sales_data'[Branch_Code]))
+		formatString: $ #,##0.00
+
+	measure 'Sales per Rep' = DIVIDE([Sales Amount], DISTINCTCOUNT('sales_data'[EffectiveSalesmanNo]))
+		formatString: $ #,##0.00
+
+	partition 'Local Measures' = calculated
+		mode: import
+		source = ROW("Dummy", 1)

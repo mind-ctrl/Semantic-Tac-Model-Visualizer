@@ -1,0 +1,86 @@
+table branches
+
+	column Branch_Code
+		dataType: string
+		sourceColumn: Branch_Code
+
+	column Branch_Name
+		dataType: string
+		sourceColumn: Branch_Name
+
+	column Branch_Address1
+		dataType: string
+		sourceColumn: Branch_Address1
+
+	column Branch_Address2
+		dataType: string
+		sourceColumn: Branch_Address2
+
+	column Branch_City
+		dataType: string
+		sourceColumn: Branch_City
+
+	column Branch_State
+		dataType: string
+		sourceColumn: Branch_State
+
+	column Branch_Postcode
+		dataType: string
+		sourceColumn: Branch_Postcode
+
+	column Branch_Country
+		dataType: string
+		sourceColumn: Branch_Country
+
+	column Branch_CostCentre
+		dataType: string
+		sourceColumn: Branch_CostCentre
+
+	column Branch_Type
+		dataType: string
+		sourceColumn: Branch_Type
+
+	column Branch_DIFOTStocked
+		dataType: int64
+		sourceColumn: Branch_DIFOTStocked
+
+	column Branch_DIFOTNonStocked
+		dataType: int64
+		sourceColumn: Branch_DIFOTNonStocked
+
+	column Branch_DIFOTEmbroideryStocked
+		dataType: int64
+		sourceColumn: Branch_DIFOTEmbroideryStocked
+
+	column Branch_DIFOTEmbroideryNonStocked
+		dataType: int64
+		sourceColumn: Branch_DIFOTEmbroideryNonStocked
+
+	column WarehouseInactive
+		dataType: boolean
+		sourceColumn: WarehouseInactive
+
+	column Original_Branch_Code
+		dataType: string
+		sourceColumn: Original_Branch_Code
+
+	column WasMerged
+		dataType: boolean
+		sourceColumn: WasMerged
+
+	column MergedFromCode
+		dataType: string
+		sourceColumn: MergedFromCode
+
+	column Branch_ManagerName
+		dataType: string
+		sourceColumn: Branch_ManagerName
+
+	column Branch_ManagerEmail
+		dataType: string
+		sourceColumn: Branch_ManagerEmail
+
+	partition branches = entity
+		mode: directLake
+		entityName: branches
+		schemaName: dbo

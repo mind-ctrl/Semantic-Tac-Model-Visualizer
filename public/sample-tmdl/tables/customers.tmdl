@@ -1,0 +1,94 @@
+table customers
+
+	column Customer_Code
+		dataType: string
+		sourceColumn: Customer_Code
+
+	column Customer_Name
+		dataType: string
+		sourceColumn: Customer_Name
+
+	column Customer_Address1
+		dataType: string
+		sourceColumn: Customer_Address1
+
+	column Customer_Address2
+		dataType: string
+		sourceColumn: Customer_Address2
+
+	column Customer_City
+		dataType: string
+		sourceColumn: Customer_City
+
+	column Customer_State
+		dataType: string
+		sourceColumn: Customer_State
+
+	column Customer_Postcode
+		dataType: string
+		sourceColumn: Customer_Postcode
+
+	column Customer_Country
+		dataType: string
+		sourceColumn: Customer_Country
+
+	column Customer_Phone
+		dataType: string
+		sourceColumn: Customer_Phone
+
+	column Customer_Email
+		dataType: string
+		sourceColumn: Customer_Email
+
+	column Customer_ABN
+		dataType: string
+		sourceColumn: Customer_ABN
+
+	column Customer_Type
+		dataType: string
+		sourceColumn: Customer_Type
+
+	column Customer_Catalogue
+		dataType: string
+		sourceColumn: Customer_Catalogue
+
+	column CreditLimit
+		dataType: double
+		sourceColumn: CreditLimit
+
+	column PaymentTerms
+		dataType: string
+		sourceColumn: PaymentTerms
+
+	column AccountManager
+		dataType: string
+		sourceColumn: AccountManager
+
+	column CustomerSince
+		dataType: dateTime
+		sourceColumn: CustomerSince
+
+	column IsActive
+		dataType: boolean
+		sourceColumn: IsActive
+
+	column CustomerGroup
+		dataType: string
+		sourceColumn: CustomerGroup
+
+	column PriceLevel
+		dataType: string
+		sourceColumn: PriceLevel
+
+	column FreightZone
+		dataType: string
+		sourceColumn: FreightZone
+
+	column ParentID
+		dataType: string
+		sourceColumn: ParentID
+
+	partition customers = entity
+		mode: directLake
+		entityName: customers
+		schemaName: dbo

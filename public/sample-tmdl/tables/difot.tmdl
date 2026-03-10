@@ -1,0 +1,62 @@
+table difot
+
+	column DIL_SERLINK
+		dataType: string
+		sourceColumn: DIL_SERLINK
+
+	column InvoiceDate
+		dataType: dateTime
+		sourceColumn: InvoiceDate
+
+	column ItemNo
+		dataType: string
+		sourceColumn: ItemNo
+
+	column WarehouseNumber
+		dataType: string
+		sourceColumn: WarehouseNumber
+
+	column Customer_Code
+		dataType: string
+		sourceColumn: Customer_Code
+
+	column OrderDate
+		dataType: dateTime
+		sourceColumn: OrderDate
+
+	column RequestedDate
+		dataType: dateTime
+		sourceColumn: RequestedDate
+
+	column DeliveryDate
+		dataType: dateTime
+		sourceColumn: DeliveryDate
+
+	column DaysToDeliver
+		dataType: int64
+		sourceColumn: DaysToDeliver
+
+	column IsOnTime
+		dataType: boolean
+		sourceColumn: IsOnTime
+
+	column IsInFull
+		dataType: boolean
+		sourceColumn: IsInFull
+
+	column IsDIFOT
+		dataType: boolean
+		sourceColumn: IsDIFOT
+
+	column Quantity_Ordered
+		dataType: int64
+		sourceColumn: Quantity_Ordered
+
+	column Quantity_Delivered
+		dataType: int64
+		sourceColumn: Quantity_Delivered
+
+	partition difot = entity
+		mode: directLake
+		entityName: difot
+		schemaName: dbo

@@ -1,0 +1,45 @@
+table MeasuresToApply
+
+	column Dummy
+		dataType: int64
+		sourceColumn: Dummy
+		isHidden
+
+	measure 'Monthly Sales' = CALCULATE([Sales Amount], DATESMTD('calendar'[CalendarDate]))
+		formatString: $ #,##0.00
+		displayFolder: Period Calculations
+
+	measure 'Quarterly Sales' = CALCULATE([Sales Amount], DATESQTD('calendar'[CalendarDate]))
+		formatString: $ #,##0.00
+		displayFolder: Period Calculations
+
+	measure 'Yearly Sales' = CALCULATE([Sales Amount], DATESYTD('calendar'[CalendarDate]))
+		formatString: $ #,##0.00
+		displayFolder: Period Calculations
+
+	measure 'Monthly Growth %' =
+			VAR CurrentMonth = [Monthly Sales]
+			VAR PrevMonth = CALCULATE([Monthly Sales], DATEADD('calendar'[CalendarDate], -1, MONTH))
+			RETURN DIVIDE(CurrentMonth - PrevMonth, PrevMonth)
+		formatString: 0.0%
+		displayFolder: Growth Metrics
+
+	measure 'YoY Growth %' = DIVIDE([Sales Amount] - [Sales Amount PY], [Sales Amount PY])
+		formatString: 0.0%
+		displayFolder: Growth Metrics
+
+	measure 'Rolling 12M Sales' =
+			CALCULATE(
+				[Sales Amount],
+				DATESINPERIOD('calendar'[CalendarDate], MAX('calendar'[CalendarDate]), -12, MONTH)
+			)
+		formatString: $ #,##0.00
+		displayFolder: Period Calculations
+
+	measure 'Avg Monthly Sales' = DIVIDE([Yearly Sales], 12)
+		formatString: $ #,##0.00
+		displayFolder: Period Calculations
+
+	partition MeasuresToApply = calculated
+		mode: import
+		source = ROW("Dummy", 1)

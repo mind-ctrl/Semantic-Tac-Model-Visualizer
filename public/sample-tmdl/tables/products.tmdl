@@ -1,0 +1,54 @@
+table products
+
+	column Product_ItemNo
+		dataType: string
+		sourceColumn: Product_ItemNo
+
+	column Product_Durable
+		dataType: boolean
+		sourceColumn: Product_Durable
+
+	column Product_Description
+		dataType: string
+		sourceColumn: Product_Description
+
+	column Product_Brand
+		dataType: string
+		sourceColumn: Product_Brand
+
+	column Product_Supplier
+		dataType: string
+		sourceColumn: Product_Supplier
+
+	column Product_Type
+		dataType: string
+		sourceColumn: Product_Type
+
+	column Product_Status
+		dataType: string
+		sourceColumn: Product_Status
+
+	column Product_UOM
+		dataType: string
+		sourceColumn: Product_UOM
+
+	column Product_Weight
+		dataType: double
+		sourceColumn: Product_Weight
+
+	column Product_PricingBandDate
+		dataType: dateTime
+		sourceColumn: Product_PricingBandDate
+
+	column Product_StdCostPrice
+		dataType: double
+		sourceColumn: Product_StdCostPrice
+
+	column Product_EANCategory
+		dataType: string
+		sourceColumn: Product_EANCategory
+
+	partition products = entity
+		mode: directLake
+		entityName: products
+		schemaName: dbo

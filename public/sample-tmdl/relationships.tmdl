@@ -1,0 +1,56 @@
+relationship 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+	fromColumn: customers.Customer_Code
+	toColumn: customers_hierarchy.Customer_Code
+
+relationship 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+	fromColumn: difot.DIL_SERLINK
+	toColumn: transaction_data.DIL_SERLINK
+
+relationship 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+	fromColumn: difot.InvoiceDate
+	toColumn: calendar.CalendarDate
+
+relationship 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a
+	fromColumn: difot.ItemNo
+	toColumn: products.Product_ItemNo
+
+relationship 5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
+	fromColumn: difot.WarehouseNumber
+	toColumn: branches.Branch_Code
+
+relationship 6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
+	fromColumn: products.Product_DefaultSupplierCode
+	toColumn: suppliers.Supplier_Code
+
+relationship 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+	fromColumn: products.Product_ItemNo
+	toColumn: product_category.ProductCategory
+
+relationship 8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
+	fromColumn: sales_data.Customer_Code
+	toColumn: customers.Customer_Code
+
+relationship 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+	fromColumn: sales_data.Invoice_Date
+	toColumn: calendar.CalendarDate
+
+relationship 0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a
+	fromColumn: sales_data.ItemNo
+	toColumn: products.Product_ItemNo
+
+relationship 1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b
+	fromColumn: sales_data.Warehouse_No
+	toColumn: branches.Branch_Code
+
+relationship 2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c
+	fromColumn: sales_rep_debtor_mapping.Customer_Code
+	toColumn: customers.Customer_Code
+	crossFilteringBehavior: bothDirections
+
+relationship 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+	fromColumn: transaction_data.Customer_Code
+	toColumn: customers.Customer_Code
+
+relationship 4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+	fromColumn: sales_data.EffectiveSalesmanNo
+	toColumn: sales_reps.SalesmanNo

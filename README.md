@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Semantic Visualizer
+
+A web-based tool for visualizing Power BI semantic models. Upload a TMDL zip or .bim file and instantly explore interactive diagrams of your data model — entirely in the browser.
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![React Flow](https://img.shields.io/badge/React%20Flow-12-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+## Features
+
+- **Entity Relationship Diagram (ERD)** — Full table/column view with relationship keys, data types, and cardinality
+- **Star Schema View** — Automatic classification of tables into Fact, Dimension, Bridge, Measure, and Utility roles with radial layout
+- **Data Sources Diagram** — Visualize the data pipeline from sources to tables (Direct Lake vs Import)
+- **RLS Flow Diagram** — Map Row-Level Security roles to filtered tables and downstream propagation
+- **Calculation Groups** — View calculation groups and their items with expressions and precedence
+- **Health Dashboard** — DAX complexity analysis with measure-level scoring
+- **100% Client-Side** — No data leaves your browser. All parsing and rendering happens locally.
+
+## Supported File Formats
+
+### TMDL Zip
+A `.zip` file containing the TMDL folder structure:
+```
+*.SemanticModel/
+  definition/
+    model.tmdl
+    relationships.tmdl
+    tables/
+      *.tmdl (at least one)
+```
+
+### BIM / JSON
+A `.bim` or `.json` file in the Power BI model schema format (the serialized `model.bim` from Tabular Editor, Visual Studio, etc.)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+
+- npm
+
+### Install & Run
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Diagram Interactions
 
-To learn more about Next.js, take a look at the following resources:
+- **Pan & Zoom** — Scroll to zoom, click and drag to pan
+- **Node Selection** — Click a node to highlight its connections (ERD & Star Schema)
+- **Node Resize** — Click a node to select it, then drag the corner handles to resize
+- **MiniMap** — Use the interactive minimap in the bottom-right to navigate large models
+- **Collapsible Sidebar** — Toggle the sidebar to maximize diagram space
+- **Export** — Save any diagram as PNG or SVG
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **Diagrams**: React Flow (@xyflow/react)
+- **Styling**: Tailwind CSS v4
+- **Parsing**: Custom TMDL/BIM parsers with JSZip
+- **Language**: TypeScript
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+  app/              # Next.js app router pages & API routes
+  components/       # React components
+    diagrams/       # ERD, Star Schema, RLS, Sources, Calc Group diagrams
+  lib/              # Parsers, analysis, types, model context
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy
+
+The easiest deployment option is Vercel:
+
+1. Push this repo to GitHub
+2. Import the repo on [vercel.com](https://vercel.com)
+3. Vercel auto-detects Next.js — click Deploy
+
+Other options: Netlify, Cloudflare Pages, or any Node.js host.
+
+## License
+
+MIT

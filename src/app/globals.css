@@ -1,26 +1,125 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Cursor-inspired warm minimalist palette */
+  --color-background: #f7f7f4;
+  --color-surface: #ffffff;
+  --color-surface-light: #f2f2ef;
+  --color-surface-elevated: #ffffff;
+  --color-border: rgba(38, 37, 30, 0.08);
+  --color-border-subtle: rgba(38, 37, 30, 0.05);
+  --color-text: #26251e;
+  --color-text-muted: rgba(38, 37, 30, 0.55);
+  --color-text-dim: rgba(38, 37, 30, 0.32);
+  --color-primary: #7EACB5;
+  --color-primary-light: #5E949E;
+  --color-primary-dim: #A3C4CB;
+  --color-accent: #BF4646;
+  --color-accent-light: #E36A6A;
+  --color-accent-orange: #D4874D;
+  --color-accent-red: #BF4646;
+  --color-accent-purple: #9B7AA0;
+  --color-accent-green: #6A9E6E;
+  --color-gradient-start: #7EACB5;
+  --color-gradient-end: #BF4646;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle warm glow */
+.glow-teal {
+  box-shadow: 0 1px 3px rgba(38, 37, 30, 0.04), 0 8px 24px rgba(126, 172, 181, 0.08);
+}
+
+.glow-indigo {
+  box-shadow: 0 1px 3px rgba(38, 37, 30, 0.04), 0 8px 24px rgba(191, 70, 70, 0.06);
+}
+
+/* Glass card - Cursor style */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(38, 37, 30, 0.08);
+}
+
+/* Gradient border */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* React Flow overrides */
+.react-flow__background {
+  background: #f7f7f4 !important;
+}
+
+.react-flow__minimap {
+  background: #ffffff !important;
+  border-radius: 12px;
+  border: 1px solid rgba(38, 37, 30, 0.08) !important;
+  box-shadow: 0 1px 3px rgba(38, 37, 30, 0.04);
+}
+
+.react-flow__controls {
+  background: #ffffff !important;
+  border-radius: 12px;
+  border: 1px solid rgba(38, 37, 30, 0.08) !important;
+  box-shadow: 0 1px 3px rgba(38, 37, 30, 0.04);
+}
+
+.react-flow__controls-button {
+  background: #ffffff !important;
+  border-color: rgba(38, 37, 30, 0.08) !important;
+  color: #26251e !important;
+  fill: #26251e !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #f2f2ef !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(38, 37, 30, 0.12);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(38, 37, 30, 0.24);
 }
